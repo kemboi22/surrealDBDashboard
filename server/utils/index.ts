@@ -4,18 +4,17 @@ const db = new Surreal()
 const runtimeConfig = useRuntimeConfig()
 
 const connectToDatabase = async () => {
-  await db.connect(runtimeConfig.surrealDbHost, {
-    database: runtimeConfig.surrealDbDatabase,
-    namespace: runtimeConfig.surrealDbNamespace,
+  console.log(`URL: ${runtimeConfig.public.surrealDbHost}`)
+  await db.connect(runtimeConfig.public.surrealDbHost, {
+    database: runtimeConfig.public.surrealDbDatabase,
+    namespace: runtimeConfig.public.surrealDbNamespace,
     auth: {
-      username: runtimeConfig.surrealDbUsername,
-      password: runtimeConfig.surrealDbPassword,
-      database: runtimeConfig.surrealDbDatabase,
-      namespace: runtimeConfig.surrealDbNamespace,
+      username: runtimeConfig.public.surrealDbUsername,
+      password: runtimeConfig.public.surrealDbPassword,
+      database: runtimeConfig.public.surrealDbDatabase,
+      namespace: runtimeConfig.public.surrealDbNamespace,
     },
   })
 }
 
-connectToDatabase().then(r => r)
-
-export { db }
+export { db, connectToDatabase }

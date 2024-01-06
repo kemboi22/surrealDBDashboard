@@ -132,11 +132,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000',
+      surrealDbHost: process.env.NUXT_SURREAL_DB_HOST || '',
+      surrealDbUsername: process.env.NUXT_SURREAL_DB_USERNAME || '',
+      surrealDbPassword: process.env.NUXT_SURREAL_DB_PASSWORD || '',
+      surrealDbDatabase: process.env.NUXT_SURREAL_DB_DATABASE || '',
+      surrealDbNamespace: process.env.NUXT_SURREAL_DB_NAMESPACE || '',
     },
-    surrealDbHost: process.env.NUXT_SURREAL_DB_HOST || '',
-    surrealDbUsername: process.env.NUXT_SURREAL_DB_USERNAME || '',
-    surrealDbPassword: process.env.NUXT_SURREAL_DB_PASSWORD || '',
-    surrealDbDatabase: process.env.NUXT_SURREAL_DB_DATABASE || '',
-    surrealDbNamespace: process.env.NUXT_SURREAL_DB_NAMESPACE || '',
+
   },
 })

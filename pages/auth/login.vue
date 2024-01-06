@@ -14,12 +14,7 @@ definePageMeta({
   layout: 'blank',
 })
 
-const form = ref({
-  email: '',
-  password: '',
-  remember: false,
-})
-
+const authStore = useAuthStore()
 const isPasswordVisible = ref(false)
 
 const authThemeImg = useGenerateImageVariant(
@@ -80,23 +75,23 @@ const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
           </p>
         </VCardText>
         <VCardText>
-          <VForm @submit.prevent="() => { }">
+          <VForm @submit.prevent="authStore.login">
             <VRow>
               <!-- email -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="form.email"
+                  v-model="authStore.loginCredentials.username"
                   autofocus
-                  label="Email"
-                  type="email"
-                  placeholder="johndoe@email.com"
+                  label="Username"
+                  type="text"
+                  placeholder="Username"
                 />
               </VCol>
 
               <!-- password -->
               <VCol cols="12">
                 <AppTextField
-                  v-model="form.password"
+                  v-model="authStore.loginCredentials.password"
                   label="Password"
                   placeholder="············"
                   :type="isPasswordVisible ? 'text' : 'password'"
@@ -106,7 +101,7 @@ const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
 
                 <div class="d-flex align-center flex-wrap justify-space-between mt-2 mb-4">
                   <VCheckbox
-                    v-model="form.remember"
+                    v-model="authStore.loginCredentials.remember"
                     label="Remember me"
                   />
                   <a
@@ -118,7 +113,7 @@ const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
                 </div>
 
                 <VBtn
-                  block
+                  block="true"
                   type="submit"
                 >
                   Login
