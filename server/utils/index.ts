@@ -17,4 +17,10 @@ const connectToDatabase = async () => {
   })
 }
 
+export const checkIsAuthenticated = async (token: string) => {
+  await connectToDatabase()
+
+  return await db.authenticate(token)
+}
+
 export { db, connectToDatabase }
