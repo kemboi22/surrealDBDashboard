@@ -8,7 +8,11 @@ infoStore.getDatabaseInfo(route.params.namespace, route.params.database)
 <template>
   <div>
     <h1>Namespace: {{ route.params.namespace }} / Database: {{ route.params.database }}</h1>
-
+    <div class="pt-3 pb-2">
+      <NuxtLink :to="`/namespace/${route.params.namespace}/${route.params.database}/query`">
+        <VBtn>Query The Database</VBtn>
+      </NuxtLink>
+    </div>
     <VRow>
       <VCol
         v-for="(database, index) in infoStore.databaseInfo"

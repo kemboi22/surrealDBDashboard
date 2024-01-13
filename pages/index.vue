@@ -18,6 +18,7 @@ infoStore.getInformation()
           <VCol
             v-for="(namespaceDesc, name) in root.namespaces"
             :key="name"
+            class="v-col-4"
           >
             <VCard>
               <VCardItem>
@@ -55,8 +56,12 @@ infoStore.getInformation()
           class="v-col-3"
         >
           <VCard>
-            <VCardTitle>{{ username.toString().toUpperCase() }}</VCardTitle>
-            <VCode>{{ usernameDesc }}</VCode>
+            <VCardItem>
+              <VCardTitle>{{ username.toString().toUpperCase() }}</VCardTitle>
+            </VCardItem>
+            <VCardText>
+              <VCode>{{ usernameDesc }}</VCode>
+            </VCardText>
           </VCard>
         </VCol>
       </VCol>

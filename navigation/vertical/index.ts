@@ -4,9 +4,10 @@ export default [
     to: { name: 'index' },
     icon: { icon: 'tabler-smart-home' },
   },
-  {
-    title: 'Second page',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-file' },
-  },
+
+  // {
+  //   title: 'Query',
+  //   to: { name: 'query' },
+  //   icon: { icon: 'tabler-code' },
+  // },
 ]
